@@ -52,7 +52,7 @@ function adapterEvent(e) {
     debugger;
     var _type = e.type;
 
-    console.log("111");
+    console.log(_type);
 }
 
 
