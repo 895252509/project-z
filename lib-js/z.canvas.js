@@ -5,9 +5,8 @@ zzz.canvas = (function() {
     var iCanvasCtx = null;
 
     function fontStyle(obj) {
+        if (typeof obj === "undefined") obj = {};
         this.font_size = obj.size || 12;
-        this.font_posX = obj.posX || 0;
-        this.font_posY = obj.posY || 0;
         this.font_color = obj.color || "black";
     }
 
@@ -38,18 +37,33 @@ zzz.canvas = (function() {
         )
     }
 
-    function showText(_text, _style) {
-        if (typeof _text !== "string" || !_style instanceof fontStyle)
+    function showText(_text, _pos, _style) {
+        var style = _style || new fontStyle();
+        var pos = _pos || new zzz.shape.point();
+        if (typeof _text !== "string" || !pos instanceof zzz.shape.point || !style instanceof fontStyle)
             throw zzz.eror.ParameterTypeError();
+        iCanvasCtx.save();
+        iCanvasCtx.textBaseline = "ideographic";
+        var reg = / ?[0-9]{0,2}px /;
+        iCanvasCtx.font = iCanvasCtx.font.replace(reg, " " + style.font_size.toString() + "px ");
+        iCanvasCtx.fillStyle = style.font_color;
+        iCanvasCtx.fillText(_text, pos.x, pos.y);
+
+        iCanvasCtx.stroke();
+    }
+    /**
+     * 私有函数
+     */
+    function getFontSizeFromfont() {
 
     }
-
     return {
         getCanvas: getCanvas,
         getContext: getContext,
         init: init,
         strokeRect: strokeRect,
-        fontStyle: fontStyle
+        fontStyle: fontStyle,
+        showText: showText
     }
 
 })();

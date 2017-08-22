@@ -69,6 +69,12 @@ window.onload = function() {
 
     var btn = new zzz.uicom.button();
 
+    var font1 = new zzz.canvas.fontStyle({
+        size: 20,
+        posy: 20,
+        color: "#4444ee"
+    })
+
     zzz.canvas.strokeRect(new zzz.shape.rect({
         left: 20,
         top: 20,
@@ -76,7 +82,6 @@ window.onload = function() {
         bottom: 60
     }));
 
-    zzz.canvas.getContext().font = "26px ";
-    zzz.canvas.getContext().fillText("Hello world", 50, 50);
+    zzz.canvas.showText("Hello World", font1);
 
 }

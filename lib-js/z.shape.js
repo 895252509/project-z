@@ -2,9 +2,10 @@ if (typeof zzz !== 'object') var zzz = {};
 
 zzz.shape = (function() {
     //点
-    function point() {
-        this.x = 0;
-        this.y = 0;
+    function point(obj) {
+        if (typeof obj === "undefined") obj = {};
+        this.x = obj.x || 0;
+        this.y = obj.x || 0;
     }
     point.prototype.equals = function(_p) {
         return this.x === _p.x && this.y === _p.y;
