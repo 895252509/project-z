@@ -3,10 +3,12 @@ var b = Number(a);
 zzz.lib.isNaN(b);
 
 function _createDivInsertBody() {
-    var _dom = document.createElement("div");
-    var _styleStr = "background-color: #ffddff;width:400px;height:100px;border:1px solid black;border-radius:3px;margin: 10px;";
+    var _dom = document.createElement("canvas");
+    var _styleStr = "background-color: #ffddff;border:1px solid black;border-radius:3px;margin: 10px;";
     _dom.setAttribute("style", _styleStr);
-    _dom.setAttribute("id", "zzz");
+    _dom.width = 600;
+    _dom.height = 480;
+    _dom.setAttribute("id", "iCanvas");
     document.body.insertBefore(_dom, document.body.firstChild);
     return _dom;
 }
@@ -52,7 +54,7 @@ function adapterEvent(e) {
 
     var _type = e.type;
 
-    console.log(_type);
+    //console.log(_type);
 }
 
 
@@ -62,10 +64,19 @@ window.onload = function() {
     zzz.comm.debug();
 
     var ev = getEnvironment();
+    zzz.canvas.init(ev.dom);
     getDOMEvent(ev.dom);
 
-    zzz.comm.DEBUGGER = true;
-    zzz.comm.debug();
     var btn = new zzz.uicom.button();
+
+    zzz.canvas.strokeRect(new zzz.shape.rect({
+        left: 20,
+        top: 20,
+        right: 100,
+        bottom: 60
+    }));
+
+    zzz.canvas.getContext().font = "26px ";
+    zzz.canvas.getContext().fillText("Hello world", 50, 50);
 
 }
