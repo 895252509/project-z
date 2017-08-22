@@ -1,12 +1,12 @@
 var a = "";
 var b = Number(a);
-zz.lib.isNaN(b);
+zzz.lib.isNaN(b);
 
 function _createDivInsertBody() {
     var _dom = document.createElement("div");
     var _styleStr = "background-color: #ffddff;width:400px;height:100px;border:1px solid black;border-radius:3px;margin: 10px;";
     _dom.setAttribute("style", _styleStr);
-    _dom.setAttribute("id", "zz");
+    _dom.setAttribute("id", "zzz");
     document.body.insertBefore(_dom, document.body.firstChild);
     return _dom;
 }
@@ -18,10 +18,10 @@ function getEnvironment(_id) {
         document: document
     }
 
-    if (!zz.lib.isExist(_id)) {
+    if (!zzz.lib.isExist(_id)) {
         _result.dom = _createDivInsertBody();
     } else {
-        if (!zz.lib.isObject(_id)) throw zz.error.ParameterTypeError();
+        if (!zzz.lib.isObject(_id)) throw zzz.error.ParameterTypeError();
 
         if (typeof _id === 'string') {
             var _dom = document.getElementById(_id);
@@ -39,9 +39,9 @@ function getEnvironment(_id) {
  * 接管DOM事件
  */
 function getDOMEvent(_dom) {
-    if (!_dom instanceof HTMLElement) throw zz.error.ParameterTypeError();
+    if (!_dom instanceof HTMLElement) throw zzz.error.ParameterTypeError();
 
-    zz.lib.getAllPrototypeNames(_dom).forEach(function(element) {
+    zzz.lib.getAllPrototypeNames(_dom).forEach(function(element) {
         if (element.substring(0, 2) === "on")
             _dom[element] = adapterEvent;
     }, this);
@@ -49,7 +49,7 @@ function getDOMEvent(_dom) {
 }
 
 function adapterEvent(e) {
-    debugger;
+
     var _type = e.type;
 
     console.log(_type);
@@ -57,7 +57,15 @@ function adapterEvent(e) {
 
 
 window.onload = function() {
-    debugger;
+
+    zzz.comm.DEBUGGER = false;
+    zzz.comm.debug();
+
     var ev = getEnvironment();
     getDOMEvent(ev.dom);
+
+    zzz.comm.DEBUGGER = true;
+    zzz.comm.debug();
+    var btn = new zzz.uicom.button();
+
 }

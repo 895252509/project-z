@@ -1,6 +1,6 @@
-if (!zz.lib.isObject(zz)) var zz = {};
+if (!zzz.lib.isObject(zzz)) var zzz = {};
 
-zz.error = (function() {
+zzz.error = (function() {
     /**
      * 参数类型错误
      */

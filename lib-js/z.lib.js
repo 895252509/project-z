@@ -4,9 +4,9 @@
  * 
  */
 
-if (typeof z === 'undefined') var zz = {};
+if (typeof zzz === 'undefined') var zzz = {};
 
-zz.lib = (function() {
+zzz.lib = (function() {
     /**
      * 判断参数是不是一个对象
      */
