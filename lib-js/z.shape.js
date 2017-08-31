@@ -5,7 +5,7 @@ zzz.shape = (function() {
     function point(obj) {
         if (typeof obj === "undefined") obj = {};
         this.x = obj.x || 0;
-        this.y = obj.x || 0;
+        this.y = obj.y || 0;
     }
     point.prototype.equals = function(_p) {
         return this.x === _p.x && this.y === _p.y;

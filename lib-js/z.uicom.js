@@ -14,8 +14,6 @@ zzz.uicom = (function() {
     button.prototype = new area();
 
 
-
-
     return {
         area: area,
         button: button

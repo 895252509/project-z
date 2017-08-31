@@ -43,7 +43,7 @@ zzz.canvas = (function() {
         if (typeof _text !== "string" || !pos instanceof zzz.shape.point || !style instanceof fontStyle)
             throw zzz.eror.ParameterTypeError();
         iCanvasCtx.save();
-        iCanvasCtx.textBaseline = "ideographic";
+        iCanvasCtx.textBaseline = "alphabetic";
         var reg = / ?[0-9]{0,2}px /;
         iCanvasCtx.font = iCanvasCtx.font.replace(reg, " " + style.font_size.toString() + "px ");
         iCanvasCtx.fillStyle = style.font_color;
