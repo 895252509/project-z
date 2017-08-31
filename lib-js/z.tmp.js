@@ -64,26 +64,28 @@ window.onload = function() {
     zzz.comm.debug();
 
     var ev = getEnvironment();
+    /*
     zzz.canvas.init(ev.dom);
     getDOMEvent(ev.dom);
 
     var btn = new zzz.uicom.button();
 
     var font1 = new zzz.canvas.fontStyle({
-        size: 48,
+        size: 60,
         color: "red"
     })
 
     zzz.canvas.strokeRect(new zzz.shape.rect({
         left: 0,
         top: 0,
-        right: 100,
-        bottom: 48
+        right: 400,
+        bottom: 60
     }));
 
-    zzz.canvas.showText("国家", new zzz.shape.point({ x: 0, y: 48 }), font1);
+    zzz.canvas.showText("15486513", new zzz.shape.point({ x: 0, y: 0 }), font1);
+*/
 
-
-
+    var test = new zzz.test(2);
+    test.init();
 
 }
