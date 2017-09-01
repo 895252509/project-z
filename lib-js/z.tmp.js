@@ -85,7 +85,14 @@ window.onload = function() {
     zzz.canvas.showText("15486513", new zzz.shape.point({ x: 0, y: 0 }), font1);
 */
 
-    var test = new zzz.test(2);
-    test.init();
+    var canvas = new zzz.canvas(ev.dom);
+
+
+    var act = new zzz.activity.activity_base(ev.dom);
+    act.init();
+    act.onclick = function() {
+
+        debugger;
+    }
 
 }

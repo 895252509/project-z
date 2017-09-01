@@ -8,7 +8,20 @@ if (typeof zzz === 'undefined') var zzz = {};
 
 zzz.activity = (function() {
 
-    function activity_base() {
+    function adapterEvent(e) {
+        switch (e.type) {
+            case "mousemove":
+
+                break;
+
+            default:
+                if (typeof this.activity["on" + e.type] !== "undefined" && this.activity["on" + e.type] != null)
+                    this.activity["on" + e.type]();
+                break;
+        }
+    }
+
+    function activity_base(_o) {
         //公有属性
         this.dom = null;
         this.ctx = null;
@@ -17,10 +30,26 @@ zzz.activity = (function() {
         this.height = 0;
 
         this.coms = [];
+
+        var theCanvas = new zzz.canvas(_o);
+        if (!theCanvas instanceof zzz.canvas) return null;
+        this.dom = _o;
+        this.dom.activity = this;
+        this.ctx = theCanvas.iCanvasCtx;
+        this.canvas = theCanvas;
+        this.width = this.dom.clientWidth;
+        this.height = this.dom.clientHeight;
     }
 
-    activity_base.prototype.init = function(_o) {
-        var theCanvas = new zzz.canvas.init(_o);
+    activity_base.prototype.init = function() {
+        var allProp = zzz.lib.getAllPrototypeNames(this.dom);
+        for (var i = 0; i < allProp.length; i++) {
+            if (allProp[i].substring(0, 2) === "on") {
+                this.dom[allProp[i]] = adapterEvent;
+                this.dom.activity[allProp[i]] = null;
+            }
+
+        }
 
     }
 
@@ -29,7 +58,7 @@ zzz.activity = (function() {
 
     return {
 
-
+        activity_base: activity_base
 
 
     }
