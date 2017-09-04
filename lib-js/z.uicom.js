@@ -2,21 +2,27 @@ if (typeof zzz !== 'object') var zzz = {};
 
 zzz.uicom = (function() {
 
-    function area() {
+    function area(_obj) {
         this.parent = null;
         this.children = [];
-        this.rect = new zzz.shape.rect();
+        this.rect = new zzz.shape.rect(_obj);
     }
 
-    function button() {
+    function button(_obj) {
 
     }
     button.prototype = new area();
+    button.prototype.constructor = button;
+
+    function menu(_obj) {
+
+    }
+    menu.prototype = new area();
 
 
     return {
         area: area,
-        button: button
-
+        button: button,
+        menu: menu
     }
 })();

@@ -92,8 +92,9 @@ window.onload = function() {
     act.init();
     act.onclick = function() {
 
-    }
-    act.oncontextmenu = function(e) {
+    };
+    act.onicontextmenu = function(e) {
+        console.log("12312");
         return false;
     }
 
@@ -101,4 +102,5 @@ window.onload = function() {
     //     return false;
     // }
 
+    var btn = new zzz.uicom.button({});
 }

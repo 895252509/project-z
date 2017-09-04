@@ -14,6 +14,9 @@ zzz.activity = (function() {
 
                 break;
             case "contextmenu":
+                if (typeof this.activity["onicontextmenu"] != "undefined" && this.activity["onicontextmenu"] != null) {
+                    this.activity["onicontextmenu"]();
+                }
                 return false;
                 break;
             default:
@@ -41,6 +44,7 @@ zzz.activity = (function() {
         this.canvas = theCanvas;
         this.width = this.dom.clientWidth;
         this.height = this.dom.clientHeight;
+
     }
 
     activity_base.prototype.init = function() {
