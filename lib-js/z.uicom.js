@@ -9,7 +9,7 @@ zzz.uicom = (function() {
     }
 
     function button(_obj) {
-
+        area.apply(this, arguments);
     }
     button.prototype = new area();
     button.prototype.constructor = button;
