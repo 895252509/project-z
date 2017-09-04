@@ -13,10 +13,12 @@ zzz.activity = (function() {
             case "mousemove":
 
                 break;
-
+            case "contextmenu":
+                return false;
+                break;
             default:
                 if (typeof this.activity["on" + e.type] !== "undefined" && this.activity["on" + e.type] != null)
-                    this.activity["on" + e.type]();
+                    this.activity["on" + e.type](e);
                 break;
         }
     }

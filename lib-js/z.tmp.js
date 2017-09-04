@@ -92,7 +92,13 @@ window.onload = function() {
     act.init();
     act.onclick = function() {
 
-        debugger;
     }
+    act.oncontextmenu = function(e) {
+        return false;
+    }
+
+    // act.dom.oncontextmenu = function() {
+    //     return false;
+    // }
 
 }
