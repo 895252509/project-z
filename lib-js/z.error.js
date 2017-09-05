@@ -8,8 +8,16 @@ zzz.error = (function() {
         return new Error("函数参数类型不正确");
     }
 
+    /**
+     * 空指针或者类型不正确
+     */
+    function NullPointOrTypeError() {
+        return new Error("空指针或者类型不正确");
+    }
+
     return {
-        ParameterTypeError: ParameterTypeError
+        ParameterTypeError: ParameterTypeError,
+        NullPointOrTypeError: NullPointOrTypeError
     }
 
 })();

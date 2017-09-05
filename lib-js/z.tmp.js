@@ -103,4 +103,17 @@ window.onload = function() {
     // }
 
     var btn = new zzz.uicom.button({});
+
+    var ctx = act.ctx;
+    ctx.save();
+    ctx.fillStyle = "red";
+    ctx.fillText("Hello World", 50, 50);
+    ctx.save();
+    ctx.fillStyle = "blue";
+    ctx.fillText("Hello World", 50, 50);
+    ctx.restore();
+    ctx.fillText("Hello World", 50, 50);
+    ctx.restore();
+    ctx.fillText("Hello World", 50, 50);
+
 }

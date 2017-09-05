@@ -1,14 +1,31 @@
 if (typeof zzz !== 'object') var zzz = {};
 
 zzz.uicom = (function() {
-
-    function area(_obj) {
+    /**
+     * 面积对象
+     * @param {*Ctx canvas 绘图上下文}
+     * @param {*位置 继承自 zzz.shape.rect} _obj 
+     */
+    function area(_ctx, _obj) {
         this.parent = null;
         this.children = [];
+        if (!_ctx instanceof CanvasRenderingContext2D) throw zzz.error.ParameterTypeError();
+        else this.ctx = _ctx;
         this.rect = new zzz.shape.rect(_obj);
-    }
 
-    function button(_obj) {
+        this.border = "";
+    }
+    area.prototype.draw = function() {
+            if (!this.ctx instanceof CanvasRenderingContext2D) throw zzz.error.NullPointOrTypeError();
+            else this.ctx.save();
+            this.ctx.fillRect();
+        }
+        /**
+         * 按钮对象
+         * @param {*Ctx canvas 绘图上下文}
+         * @param {*位置 继承自 zzz.shape.rect} _obj 
+         */
+    function button(_ctx, _obj) {
         area.apply(this, arguments);
     }
     button.prototype = new area();
@@ -16,9 +33,10 @@ zzz.uicom = (function() {
 
     /**
      * 菜单对象
+     * @param {*Ctx canvas 绘图上下文}
      * @param {*位置 继承自 zzz.shape.rect} _obj 
      */
-    function menu(_obj) {
+    function menu(_ctx, _obj) {
         this.DIRECTION_VERTICAL = "vertical";
         this.DIRECTION_HORIZONTAL = "horizontal";
         area.apply(this, arguments);
