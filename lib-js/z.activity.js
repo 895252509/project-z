@@ -8,6 +8,17 @@ if (typeof zzz === 'undefined') var zzz = {};
 
 zzz.activity = (function() {
 
+    /**
+     * 返回一个随机的颜色
+     * @return {*String rgb颜色}
+     */
+    function randColor() {
+        var r = zzz.lib.getRandomInt(0, 255);
+        var g = zzz.lib.getRandomInt(0, 255);
+        var b = zzz.lib.getRandomInt(0, 255);
+        return "rgb(" + r.toString() + "," + g.toString() + "," + b.toString() + ")";
+    }
+
     function adapterEvent(e) {
         switch (e.type) {
             case "mousemove":
@@ -45,6 +56,7 @@ zzz.activity = (function() {
         this.width = this.dom.clientWidth;
         this.height = this.dom.clientHeight;
 
+        this.contextmenu = null;
     }
 
     activity_base.prototype.init = function() {
