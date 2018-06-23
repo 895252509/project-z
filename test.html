@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>project - z</title>
+  <!-- <link rel="stylesheet" type="text/css" href="style/style.css" /> -->
+  <style>
+    * {
+      margin: 0px;
+      padding: 0px;
+    }
+    
+    #main-can {
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      background-color: #ffddffa4;
+      border-radius: 3px;
+    }
+
+    #bgk{
+      width: 200px;
+      height: 200px;
+      background-color: red;
+    }
+  </style>
+  <script src="lib-js/z.lib.js"></script>
+  <script src="lib-js/z.error.js"></script>
+  <script src="lib-js/z.comm.js"></script>
+  <script src="lib-js/z.canvas.js"></script>
+  <script src="lib-js/z.shape.js"></script>
+  <script src="lib-js/z.uicom.js"></script>
+  <script src="lib-js/z.activity.js"></script>
+  <script src="lib-js/z.test.js"></script>
+  <!--<script src="lib-js/z.tmp.js"></script>
+   <script src="lib-js/TimeAxis.js"></script>
+  <script src="app-js/main.js"></script> -->
+
+</head>
+
+<body>
+
+  <canvas id="main-can" width="800" height="600"></canvas>
+
+</body>
+<script>
+  var ctx = document.getElementById("main-can").getContext("2d");
+  console.time("frame");
+  ctx.save();
+  ctx.translate(130,130);
+  // ctx.rotate(Math.PI*2 / 8);
+  ctx.scale(1.5,1.5);
+
+  ctx.beginPath();
+  ctx.arc(0,0,100,0,Math.PI*2);
+  ctx.stroke();
+  ctx.save();
+  ctx.beginPath();
+  ctx.lineWidth = 5;
+  ctx.arc(0,0,60,0,Math.PI*2);
+  ctx.stroke();
+  ctx.restore();
+</script>
+</html>
